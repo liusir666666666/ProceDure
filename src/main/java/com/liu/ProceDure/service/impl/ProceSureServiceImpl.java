@@ -1,6 +1,7 @@
 package com.liu.ProceDure.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,17 @@ public class ProceSureServiceImpl implements ProceSureService {
 	public List<PUser> findAll() {
 		List<PUser> reList = puserMapper.selectAll();
 		return reList;
+	}
+
+	@Override
+	public void cascadeOperation() {
+		puserMapper.cascadeOperation();
+	}
+
+	@Override
+	public Map<String, Object> queryUser(Map<String, Object> paraMap) {
+		
+		return puserMapper.queryUser(paraMap);
 	}
 
 }

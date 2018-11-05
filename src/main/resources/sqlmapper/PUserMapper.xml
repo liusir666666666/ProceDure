@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liu.ProceDure.dao.proceDureMaster.PUserMapper" >
-  <resultMap id="BaseResultMap" type="com.liu.ProceDure.entity.PUser" >
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <result column="ID" property="id" jdbcType="VARCHAR" />
-    <result column="NAME" property="name" jdbcType="VARCHAR" />
-    <result column="SEX" property="sex" jdbcType="VARCHAR" />
-  </resultMap>
+<mapper
+	namespace="com.liu.ProceDure.dao.proceDureMaster.PUserMapper">
+	<resultMap id="BaseResultMap"
+		type="com.liu.ProceDure.entity.PUser">
+		<!-- WARNING - @mbg.generated -->
+		<result column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="NAME" property="name" jdbcType="VARCHAR" />
+		<result column="SEX" property="sex" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<delete id="cascadeOperation" statementType="CALLABLE">
+		{call cascadeoperation}
+	</delete>
+	
+	<select id="queryUser" statementType="CALLABLE" parameterType="java.util.Map">
+	   {call queryUser(#{fid,mode=IN,jdbcType=VARCHAR},#{sex,mode=IN,jdbcType=VARCHAR},#{name,mode=OUT,jdbcType=VARCHAR})}
+	</select>
+
 </mapper>
