@@ -7,9 +7,11 @@ import com.liu.ProceDure.entity.PUser;
 
 
 public interface ProceSureService {
+	
 	List<PUser> findAll();
 	
 	void cascadeOperation();
 	
-	Map<String, Object> queryUser(Map<String, Object> paraMap);
+	Map<String, Object> testPuser(Map<String, Object> param);
+
 }

@@ -28,9 +28,8 @@ public class ProceSureServiceImpl implements ProceSureService {
 	}
 
 	@Override
-	public Map<String, Object> queryUser(Map<String, Object> paraMap) {
-		
-		return puserMapper.queryUser(paraMap);
+	public Map<String, Object> testPuser(Map<String, Object> param) {
+		return puserMapper.testPuser(param);
 	}
 
 }

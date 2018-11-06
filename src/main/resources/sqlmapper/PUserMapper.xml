@@ -14,8 +14,9 @@
 		{call cascadeoperation}
 	</delete>
 	
-	<select id="queryUser" statementType="CALLABLE" parameterType="java.util.Map">
-	   {call queryUser(#{fid,mode=IN,jdbcType=VARCHAR},#{sex,mode=IN,jdbcType=VARCHAR},#{name,mode=OUT,jdbcType=VARCHAR})}
-	</select>
+	
+<select id="testPuser" statementType="CALLABLE" >
+  {call P_TEST(#{v_cursor, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=BaseResultMap})}
+</select>
 
 </mapper>

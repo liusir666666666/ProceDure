@@ -31,7 +31,7 @@ public class ProceDureController {
 	/**
 	 * 
 	 * @Title: proceDureDelete @Description: 储存过程删除测试 @param 参数 @return String
-	 * 返回类型 @throws
+	 *         返回类型 @throws
 	 */
 	@GetMapping("/proceDureDelete")
 	public String proceDureDelete() {
@@ -39,14 +39,17 @@ public class ProceDureController {
 		return "存储过程删除测试";
 	}
 
-	@GetMapping("/selectProceDure")
-	public String selectProceDure() {
-		Map<String, Object> mm = new HashMap<String, Object>();
-		mm.put("fid", "2018-11-05-02");
-		mm.put("sex", "女");
-		mm = proceSureService.queryUser(mm);
-
-		return "存储过程删除测试";
+	/**
+	 * 
+	 * @Title: proceDureTest @Description: TODO(这里用一句话描述这个方法的作用) @param @return
+	 *         参数 @return String 返回类型 @throws
+	 */
+	@GetMapping("/proceDureTest")
+	public List<PUser> proceDureTest() {
+		Map<String, Object> param = new HashMap<String, Object>();
+		proceSureService.testPuser(param);
+		List<PUser> resultList = (List<PUser>) param.get("v_cursor");
+		return resultList;
 	}
 
 }
